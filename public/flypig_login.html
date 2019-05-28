@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css"/>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+    <!--登录 -->
+    <div id="login">
+       <div class="p-4">
+                <!-- 图片logo -->
+            <div class="float-left">
+                <img src="./img/TB1J4LoOVXXXXaEapXXXXXXXXXX-154-53.svg" alt="">
+            </div>
+            <div class="float-left">
+                <p> 
+                  为确保您账户的安全及正常使用，依《网络安全法》相关要求，6月1日起会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！
+                </p>
+            </div>
+            <div>   
+                <a href=""> "登录页面"改进建议</a>
+            </div>
+       </div>
+    </div>
+    <!-- 中 -->
+    <div class="center mt-5">
+       <!-- 背景图片 -->
+        <div>
+            <!-- 登录框 -->
+            <div class="enter">
+               <div class="ml-1">
+                   密码登录
+               </div>
+               <div>
+                   <!--手机登录 -->
+                    <div class="p-2">
+                        <input type="text" id="fly_phone" placeholder="会员名/邮箱/手机号" class="w-100 p-1">
+                        <span></span>
+                    </div>
+                    <!-- 密码 -->
+                    <div class="p-2">
+                        <input type="password" id="fly_upwd" class="w-100 p-1">
+                        <span></span>
+                    </div>
+                    <button class="p-2 ml-2 ">登录</button>
+               </div>
+               <ul class="mt-3">
+                   <li class="mr-4 ml-4"><a href="" class="ml-3">微博登录</a></li>
+                   <li class="ml-4"><a href="" class="ml-3">支付宝登录</a></li>
+               </ul>
+               <div>
+                   <a href="#">忘记密码</a>
+                   <a href="#">忘记会员名</a>
+                   <a href="#">免费注册</a>
+               </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="login_last">
+            <ul>
+                <li><a href="">阿里巴巴集团</a></li>
+                <li><a href="">阿里巴巴国际站</a></li>
+                <li><a href="">阿里巴巴中国站</a></li>
+                <li><a href="">全球速卖通</a></li>
+                <li><a href="">淘宝网</a></li>
+                <li><a href="">天猫</a></li>
+                <li><a href="">聚划算</a></li>
+                <li><a href="">一淘</a></li>
+                <li><a href="">阿里妈妈</a></li>
+                <li><a href="">飞猪</a></li>
+                <li><a href="">虾米</a></li>
+                <li><a href="">阿里云计算</a></li>
+                <li><a href="">云OS</a></li>
+                <li><a href="">万网</a></li>
+                <li><a href="">支付宝</a></li>
+                <li><a href="">来往</a></li>
+            </ul>   
+            <p>
+                <a href="">关于淘宝</a>
+                <a href="">合作伙伴</a>
+                <a href="">营销中心</a>
+                <a href="">廉政举报</a>
+                <a href="">联系客服</a>
+                <a href="">开放平台</a>
+                <a href="">诚征英才</a>
+                <a href="">联系我们</a>
+                <a href="">网站地图</a>
+                <a href="">法律声明</a>
+                <a href="">隐私权证策</a>
+                <span>© 2019 Taobao.com 版权所有</span>
+            </p>
+            <p>
+                <span>网络文化经营许可证：浙网文[2016]0132-032号</span>
+                <span>增值电信业务经营许可证：浙B2-20080224-1</span>
+                <span>信息网络传播视听节目许可证：1109364号</span>
+            </p>
+            <div>
+                <a href="">
+                    <img src="./img/wj.gif" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-1.11.3.js"></script>
+
+ <script>  
+      $("button").click(function(){
+    var name=$("#fly_phone").val()
+    var pwd=$("#fly_upwd").val();
+   
+    $.ajax({
+        url:"http://127.0.0.1:3030/user/login",
+        type:"get",
+        data:{name,pwd},
+        dataType:"json",
+        success:function(data){
+        if(data.code==1){
+           location.href="http://127.0.0.1:3030/flypig_home.html";
+            sessionStorage.setItem("fly_id",data.data[0].fly_id);
+        }else{
+            alert("密码 账号有误");
+        }
+         
+        }
+    })
+})
+
+    $(":text").keyup(function(e){
+        if(e.keyCode===13){
+            $("button").click();
+        }
+    }).focus();
+    $(":password").keyup(function(e){
+        if(e.keyCode===13){
+            $("button").click();
+        }
+    });
+     
+    // //dom4
+    //找到触发事件的元素
+    //添加事件函数处理
+      //找到修改元素
+      //修改元素
+      //统一的判断方式 不统一的值
+       $(":text").blur(function(){
+           var reg=/^[1][3,5,7,8,9]\d{9}$/
+           input.call(this,reg,"账户错误  3~10位")
+       })
+       function input(reg,msg){
+        //获得当前文本
+        var $text=$(this);
+        //找到旁边span的位置
+         var $span=$text.next();
+         //获得当前文本框的内容
+         var value=$text.val().trim();
+         //验证如果验证正确
+         if(reg.test(value)){
+            $span.html(`<img src="./img/ok.png">`);
+         }else{
+            $span.html(`<img src="./img/err.png">${msg}`);
+         }
+       }
+       $(":password").blur(function(){
+           var reg=/^\d{6,12}$/
+           input.call(this,reg,"密码错误 6~12位")
+       })
+ </script>
+</body>
+</html>
+
