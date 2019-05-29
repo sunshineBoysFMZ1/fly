@@ -10,7 +10,7 @@ const cors=require("cors");
 var server=express();
 
 //监听端口
-server.listen(3030);
+server.listen(5050);
 //跨域配置
 server.use(cors({
     origin:["http://127.0.0.1:3030","http://localhost:3030"],//允许跨域列表

@@ -1,7 +1,5 @@
-SET NAMES UTF8;
-DROP DATABASE IF EXISTS flying;
-CREATE DATABASE flying CHARSET=UTF8;--使用database 加上CHARSET=UTF8!!!!!!!!!!!!!!!!!!!!
-USE flying;
+
+
 CREATE TABLE user(
     fly_id   INT PRIMARY KEY AUTO_INCREMENT,
     fly_uname  VARCHAR(10),
@@ -39,7 +37,7 @@ INSERT INTO fly_data VALUES(null,4,"菲律宾自由行杜马盖地宿务薄荷�
 INSERT INTO fly_data VALUES(null,4,"泼水狂欢曼谷芭提雅6天5晚纯玩半自由行泰国旅游跟团含机票0自费","1000","30天售出84件","沙岛","http://127.0.0.1:3030/img/O1CN012LY1UfMFKhlVTpV_!!3913689703.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=16");
 INSERT INTO fly_data VALUES(null,4,"万丽豪华精选泳池别墅海南三亚旅游5天4晚自由行机票酒店自驾","210","30天售出84件","大理","http://127.0.0.1:3030/img/TB2Fl7ixXooBKNjSZFPXXXa2XXa_!!3936067016.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=17");
 INSERT INTO fly_data VALUES(null,4," 全国直飞海南三亚自由行红树林系列2晚亚龙湾+2晚三亚湾五天四晚","560","30天售出84件","大理","http://127.0.0.1:3030/img/O1CN01QC5O4Q1lO6mBHnilL_!!2157654808.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=18");
---轮播图片
+#轮播图片
 CREATE TABLE circulation(
     id INT PRIMARY KEY AUTO_INCREMENT,
     clid VARCHAR(100),
@@ -51,7 +49,7 @@ INSERT INTO circulation VALUES(null,1,"http://127.0.0.1:3030/img/TB19D6QMMHqK1Rj
 INSERT INTO circulation VALUES(null,1,"http://127.0.0.1:3030/img/TB1nuY_RyrpK1RjSZFhXXXSdXXa-490-300.png");
 INSERT INTO circulation VALUES(null,1,"http://127.0.0.1:3030/img/TB1kGyKRSzqK1RjSZPxXXc4tVXa-490-300.png");
 INSERT INTO circulation VALUES(null,1,"http://127.0.0.1:3030/img/TB1f5R5IRLoK1RjSZFuXXXn0XXa-490-300.jpg");
---出境游
+#出境游
 CREATE TABLE fly_exit(
     id    INT PRIMARY KEY AUTO_INCREMENT,
     exit_id VARCHAR(100),
@@ -92,7 +90,7 @@ INSERT INTO fly_exit VALUES(null,4,"贝壳游/多城直飞中东塞班岛旅游�
 INSERT INTO fly_exit VALUES(null,4,"〈中东-新西兰包机直飞9晚11日或10晚12日游〉梦幻，","6888.00","30天售出37件","西雅图","http://127.0.0.1:3030/img/TB2K571k4WYBuNjy1zkXXXGGpXa_!!3825480463.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=47");
 INSERT INTO fly_exit VALUES(null,4,"贝壳游/多城直飞中东塞班岛旅游免签美属海岛往返特惠机票自由行","4444.00","30天售出32件","塞班岛","http://127.0.0.1:3030/img/TB2UKmVaIrI8KJjy0FhXXbfnpXa_!!2842187185.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=48");
 INSERT INTO fly_exit VALUES(null,4,"〈中东-新西兰包机直飞9晚11日或10晚12日游〉梦幻，","6888.00","30天售出37件","西雅图","http://127.0.0.1:3030/img/O1CN01Ov8oXa1emegaM8g8t_!!2168533914.jpg_230x230.jpg","http://127.0.0.1:3030/fly_detalis.html?lid=49");
---detalis
+#detalis
 CREATE TABLE fly_detalis(
     id INT PRIMARY KEY AUTO_INCREMENT,
     d_id VARCHAR(255),
@@ -154,7 +152,7 @@ INSERT INTO fly_detalis VALUES(null,53,"http://127.0.0.1:3030/img/O1CN01cCim3z1o
 INSERT INTO fly_detalis VALUES(null,54,"http://127.0.0.1:3030/img/O1CN01HhFkAK20TnvImNf2R_!!1719036851.jpg");
 INSERT INTO fly_detalis VALUES(null,55,"http://127.0.0.1:3030/img/TB17uP4QMHqK1RjSZFESuwGMXXa.jpg");
 INSERT INTO fly_detalis VALUES(null,56,"http://127.0.0.1:3030/img/TB1nzZqo4jaK1RjSZKztKXVwXXa.gif");
--- 大图 小图 请求
+# 大图 小图 请求
 CREATE TABLE pic(
     id INT  PRIMARY KEY AUTO_INCREMENT,
     p_id VARCHAR(100),
@@ -568,7 +566,7 @@ INSERT INTO pic VALUES(null,55,"http://127.0.0.1:3030/img/O1CN01A6CPI71apcoygWOY
 INSERT INTO pic VALUES(null,55,"http://127.0.0.1:3030/img/TB1FmjCJhYaK1RjSZFnROO80pXa_075541.jpg_64x64.jpg","http://127.0.0.1:3030/img
 /TB1FmjCJhYaK1RjSZFnROO80pXa_075541.jpg_400x400.jpg");
 INSERT INTO pic VALUES(null,55,"http://127.0.0.1:3030/img/TB2NKz0c7fb_uJkSmLyXXcxoXXa_!!3503893379.jpg_64x64.jpg","http://127.0.0.1:3030/img/TB2NKz0c7fb_uJkSmLyXXcxoXXa_!!3503893379.jpg_400x400.jpg");
--- 请求详细信息
+# 请求详细信息
 CREATE TABLE detalis_content(
     id INT PRIMARY KEY AUTO_INCREMENT,
     c_id VARCHAR(100),
